@@ -39,8 +39,8 @@ export class ProductListComponent implements OnInit,OnDestroy {
       next: p => {
         this.products = p;
         console.log(this.products);
-      },
-      error: err => this.errorMessage = err
+      }//,
+     // error: err => this.errorMessage = err
     });
     
   }
