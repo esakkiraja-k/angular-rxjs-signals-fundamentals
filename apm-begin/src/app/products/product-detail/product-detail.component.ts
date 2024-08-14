@@ -4,6 +4,7 @@ import { NgIf, NgFor, CurrencyPipe, AsyncPipe } from '@angular/common';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
 import { EMPTY, Subscription,catchError,pipe,tap } from 'rxjs';
+import { CartService } from 'src/app/cart/cart.service';
 
 @Component({
   selector: 'pm-product-detail',
@@ -17,7 +18,7 @@ export class ProductDetailComponent //implements OnChanges, OnDestroy
   /**
    *
    */
-  constructor(private productSvc: ProductService) {
+  constructor(private productSvc: ProductService,private cartSvc: CartService) {
 
 
   }
@@ -39,6 +40,7 @@ export class ProductDetailComponent //implements OnChanges, OnDestroy
   //pageTitle = this.product ? `Product Detail for: ${this.product.productName}` : 'Product Detail';
   pageTitle = 'details ';
   addToCart(product: Product) {
+    this.cartSvc.addToCart(product);
   }
 
   // ngOnChanges(changes: SimpleChanges): void {
